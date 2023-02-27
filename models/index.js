@@ -1,6 +1,6 @@
 // barrel file for exporting models
-const {User} = requires("./User");
-const {Thought} = requires("./Thought");
-const {Reaction} = requires("./Reaction");
+const {User} = require("./User");
+const {Thought} = require("./Thought");
+const {Reaction} = require("./Reaction");
 
 module.exports = { User, Thought, Reaction };

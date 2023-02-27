@@ -13,6 +13,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// routing paths
+const allRoutes = require('./routes');
+app.use(allRoutes);
+
 // once the database is open, begin listening on port 3001
 db.once("open", () => [
     app.listen(PORT, () => {
