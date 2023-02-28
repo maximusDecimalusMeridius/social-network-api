@@ -2,16 +2,20 @@ const { User } = require("../models");
 
 module.exports = {
     addFriend(req, res) {
-        console.log(req.baseUrl.split("/")[3])
-        console.log(req.baseUrl.split("/")[5])
         User.findOneAndUpdate(
             { _id: req.baseUrl.split("/")[3]},
-            { $addToSet: { friends: req.baseUrl.split("/")[5] }}
+            { $addToSet: { friends: req.params.friendId }}
         )
-        .then(res.json(`Friend with id: ${req.baseUrl.split("/")[5]} was added!`))
+        .then(res.json(`Friend with id: ${req.params.friendId} was added!`))
         .catch((error) => res.status(500).json(error));
     },
     deleteFriend(req, res) {
-        
+        User.findOneAndUpdate(
+            { _id: req.baseUrl.split("/")[3] },
+            { $pull: { friends: req.params.friendId } },
+            { new: true }
+        )
+        .then(res.json(`Friend with id: ${req.params.friendId} was deleted!`))
+        .catch((error) => res.status(500).json(error));
     },
 }
