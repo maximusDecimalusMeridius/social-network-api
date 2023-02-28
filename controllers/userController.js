@@ -17,7 +17,18 @@ module.exports = {
         .catch((error) => res.status(500).json(error));
     },
     updateUser(req, res) {
-        res.json("yay");
+        User.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+                username: req.body.username,
+                email: req.body.email
+            },
+            {
+                new: true
+            }
+        )
+        .then(res.json("User Updated!"))
+        .catch((error) => res.status(500).json(error));
     },
     deleteUser(req, res) {
         res.json("yay");
