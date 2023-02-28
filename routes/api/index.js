@@ -1,11 +1,11 @@
 // instantiate router
 const router = require("express").Router();
 const userRoutes = require("./userRoutes");
-// const reactionRoutes = require("./reactionRoutes");
-// const thoughtRoutes = require("./thoughtRoutes");
+const thoughtRoutes = require("./thoughtRoutes");
+const reactionRoutes = require("./reactionRoutes");
 
 router.use('/users', userRoutes);
-// router.use('/reactions', reactionRoutes);
-// router.use('/thoughts', thoughtRoutes);
+router.use('/thoughts', thoughtRoutes);
+router.use('/thoughts/:thoughtId/reactions', reactionRoutes);
 
 module.exports = router;

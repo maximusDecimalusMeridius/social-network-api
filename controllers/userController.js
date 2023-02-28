@@ -1,13 +1,19 @@
 const { User } = require("../models");
 
 module.exports = {
-    createUser(req, res) {
-        res.json("Yay");
-    },
     getAllUsers(req, res) {
-
+        res.json("yay");
     },
-    getOneUser(req, res) {
-
-    }
+    getUserById(req, res) {
+        res.json("yay");
+    },
+    createUser(req, res) {
+        res.json("yay");
+    },
+    updateUser(req, res) {
+        res.json("yay");
+    },
+    deleteUser(req, res) {
+        res.json("yay");
+    },
 }
