@@ -7,7 +7,9 @@ module.exports = {
         .catch((error) => res.status(500).json(error));
     },
     getUserById(req, res) {
-        res.json("yay");
+        User.find({ _id: req.params.id })
+        .then((user) => res.json(user))
+        .catch((error) => res.status(500).json(error));
     },
     createUser(req, res) {
         User.create(req.body)
