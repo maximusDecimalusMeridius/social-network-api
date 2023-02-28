@@ -38,7 +38,6 @@ module.exports = {
     deleteUser(req, res) {
         User.findOneAndDelete({ _id: req.params.id })
         .then((user) => {
-            console.log(user);
             return Thought.deleteMany({
                 username: user.username
             })
