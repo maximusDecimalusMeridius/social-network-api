@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
             return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(email);
         }
     }, 
-    thoughts: [{ type: Schema.Types.ObjectId, ref: "Thought" }],
-    friends: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    thoughts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Thought" }],
+    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 },
 {
     toJSON: {
@@ -34,6 +34,6 @@ userSchema.virtual("friendCount").get(function () {
 })
 
 // declare the model object
-const User = ("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

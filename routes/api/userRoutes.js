@@ -4,7 +4,7 @@ const router = require("express").Router();
 // import the functions that are defined in the user controller
 const {
     createUser,
-    getAllUser,
+    getAllUsers,
     getOneUser
 } = require("../../controllers/userController");
 

@@ -13,11 +13,11 @@ const reactionSchema = new mongoose.Schema({
 
     },
     createdAt: {
-        
+
     }
 });
 
 // declare the model object
-const Reaction = ("Reaction", reactionSchema);
+const Reaction = mongoose.model("Reaction", reactionSchema);
 
 module.exports = Reaction;
