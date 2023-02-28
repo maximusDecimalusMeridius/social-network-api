@@ -1,6 +1,5 @@
 // bring in dependencies
 // db is set to the mongodb connection defined in our connection file
-const { application } = require("express");
 const express = require("express");
 const db = require("./config/connection");
 
